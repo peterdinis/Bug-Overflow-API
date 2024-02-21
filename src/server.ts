@@ -1,17 +1,16 @@
-import errorHandler from 'errorhandler';
-import app from './app';
-import dotenv from "dotenv";
+import { ApolloServer, gql } from 'apollo-server';
 
-if (process.env.NODE_ENV === 'development') {
-    app.use(errorHandler());
-}
-
-dotenv.config();
-
-const PORT = process.env.PORT as unknown as number;
-
-const server = app.listen(PORT, () => {
-    console.log(`Applikácia beží na porte ${PORT}`);
+const server = new ApolloServer({
+    typeDefs: gql`
+        type Query {
+            hello: String
+        }
+    `,
+    cors: {
+        origin: '*',
+    },
 });
 
-export default server;
+server.listen(6132).then(({ url }) => {
+    console.log('Applikácia beží na porte' + 6132);
+});
