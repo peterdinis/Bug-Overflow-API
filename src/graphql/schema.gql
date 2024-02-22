@@ -1,0 +1,19 @@
+type Technology {
+    id: ID!
+    name: String!
+}
+
+type User {
+    id: ID!
+    userName: String!
+    email: String!
+    password: String!
+    favoriteTechnologies: [Technology!]!
+    createdAt: String!
+}
+
+type Post {
+    id: ID!
+    content: String!
+    createdAt: String!
+}
