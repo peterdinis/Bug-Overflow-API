@@ -6,6 +6,13 @@ const server = new ApolloServer({
             hello: String
         }
     `,
+    resolvers: {
+        Query: {
+            hello: async () => {
+                return 'Hello';
+            },
+        },
+    },
     cors: {
         origin: '*',
     },
