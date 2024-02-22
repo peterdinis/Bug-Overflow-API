@@ -16,5 +16,5 @@ export const rootResolvers = {
     },
 };
 
-export const resolvers = [rootResolvers, technologyTypeDefs];
-export const typeDefs = [rootTypeDefs, technologyResolvers];
+export const resolvers = [rootResolvers, technologyResolvers];
+export const typeDefs = [rootTypeDefs, technologyTypeDefs];
