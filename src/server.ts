@@ -1,18 +1,9 @@
 import { ApolloServer, gql } from 'apollo-server';
+import { resolvers, typeDefs } from './graphql/appschema';
 
 const server = new ApolloServer({
-    typeDefs: gql`
-        type Query {
-            hello: String
-        }
-    `,
-    resolvers: {
-        Query: {
-            hello: async () => {
-                return 'Hello';
-            },
-        },
-    },
+    typeDefs,
+    resolvers,
     cors: {
         origin: '*',
     },
