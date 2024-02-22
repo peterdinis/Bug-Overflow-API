@@ -12,8 +12,8 @@ export const technologyTypeDefs =  gql`
     }
 
     type Mutation {
-        createTechnology(name: String!, description: String!): Technology!
-        updateTechnology(id: ID!, name: String, description: String): Technology
+        createTechnology(name: String!, image: String!): Technology!
+        updateTechnology(id: ID!, name: String, image: String): Technology
         deleteTechnology(id: ID!): ID
     }
 `;

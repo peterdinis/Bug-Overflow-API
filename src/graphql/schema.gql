@@ -1,6 +1,7 @@
 type Technology {
     id: ID!
     name: String!
+    image: String!
 }
 
 type User {

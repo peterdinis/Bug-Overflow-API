@@ -17,6 +17,7 @@ datasource db {
 model Technology {
   id Int      @id @default(autoincrement())
   name String
+  image String
   users User[]
 }
 
