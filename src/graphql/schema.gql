@@ -10,10 +10,31 @@ type User {
     password: String!
     favoriteTechnologies: [Technology!]!
     createdAt: String!
+    posts: [Post!]!
 }
 
 type Post {
     id: ID!
     content: String!
     createdAt: String!
+    user: User!
+}
+
+type Comment {
+    id: ID!
+    createdAt: String!
+    commentedText: String!
+    post: Post!
+    user: User!
+}
+
+type Query {
+    getAllTechnologies: [Technology!]!
+    getTechnologyById(id: ID!): Technology
+}
+
+type Mutation {
+    createTechnology(name: String!, description: String!): Technology!
+    updateTechnology(id: ID!, name: String, description: String): Technology
+    deleteTechnology(id: ID!): ID
 }
