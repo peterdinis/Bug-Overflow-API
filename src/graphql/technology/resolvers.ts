@@ -7,7 +7,7 @@ export const technologyResolvers = {
             return prisma.technology.findMany();
         },
 
-        getTechnologyBdId: async (id: number) => {
+        getTechnologyById: async (id: number) => {
             const findOneTechnology = await prisma.technology.findUnique({
                 where: {
                     id,
@@ -23,7 +23,7 @@ export const technologyResolvers = {
     },
 
     Mutation: {
-        createNewTechnology: async (name: string, image: string) => {
+        createTechnology: async (name: string, image: string) => {
             const createTechnology = await prisma.technology.create({
                 data: {
                     name,
@@ -37,5 +37,13 @@ export const technologyResolvers = {
 
             return createTechnology;
         },
+
+        updateTechnology: async(id: number, name: string, image: string) => {
+
+        },
+
+        deleteTechnology: async(id: number) => {
+            
+        }
     },
 };
