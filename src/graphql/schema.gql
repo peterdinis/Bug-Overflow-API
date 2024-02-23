@@ -9,6 +9,7 @@ type User {
     userName: String!
     email: String!
     password: String!
+    token: String!
     favoriteTechnologies: [Technology!]!
     createdAt: String!
     posts: [Post!]!
@@ -58,5 +59,5 @@ type Mutation {
     deleteTechnology(id: ID!): ID
     registerUser(createNewUser: AuthInput!)
     loginUser(loginNewUser: AuthInput!)
-    
+
 }

@@ -30,6 +30,7 @@ model User {
   createdAt String
   posts Post[]
   comments Comment[]
+  token  String
 }
 
 model Post {
