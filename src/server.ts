@@ -1,6 +1,6 @@
 import { ApolloServer } from 'apollo-server';
 import { resolvers, typeDefs } from './graphql/appschema';
-import dotenv from "dotenv";
+import dotenv from 'dotenv';
 
 const PORT = process.env.PORT as unknown as number;
 
