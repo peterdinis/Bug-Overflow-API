@@ -2,6 +2,7 @@ import { ApolloError } from 'apollo-server';
 import { prisma } from '../../prisma/db';
 import {
     CreateTechnologyType,
+    SearchQueryType,
     UpdateTechnologyType,
 } from '../types/technologyTypes';
 
@@ -24,6 +25,26 @@ export const technologyResolvers = {
 
             return findOneTechnology;
         },
+
+        paginatedTechnologies: async (_: unknown, { page = 1, pageSize = 10 }) => {
+            const technologies = await prisma.technology.findMany({
+              take: pageSize,
+              skip: (page - 1) * pageSize,
+            });
+      
+            return technologies;
+          },
+          searchTechnologies: async (_: unknown, { query }: SearchQueryType) => {
+            const technologies = await prisma.technology.findMany({
+              where: {
+                name: {
+                  contains: query,
+                },
+              },
+            });
+      
+            return technologies;
+          },
     },
 
     Mutation: {

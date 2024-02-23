@@ -41,6 +41,8 @@ input updateTechnology {
 
 type Query {
     getAllTechnologies: [Technology!]!
+    paginatedTechnologies(page: Int!, pageSize: Int!): [Technology!]!
+    searchTechnologies(name: String!): Technology!
     getTechnologyById(id: ID!): Technology
 }
 
