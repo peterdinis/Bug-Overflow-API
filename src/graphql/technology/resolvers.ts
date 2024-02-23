@@ -23,18 +23,18 @@ export const technologyResolvers = {
     },
 
     Mutation: {
-        createTechnology: async (name: string, image: string) => {
+        createTechnology: async (_: any, { name, image }: any) => {
             const createTechnology = await prisma.technology.create({
                 data: {
                     name,
                     image,
                 },
             });
-
+    
             if (!createTechnology) {
                 throw new ApolloError('Technology can not be created', '400');
             }
-
+    
             return createTechnology;
         },
 
