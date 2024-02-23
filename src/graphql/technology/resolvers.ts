@@ -1,25 +1,25 @@
-import { ApolloError } from "apollo-server";
-import {prisma} from "../../prisma/db";
+import { ApolloError } from 'apollo-server';
+import { prisma } from '../../prisma/db';
 
 export const technologyResolvers = {
     Query: {
-        getAllTechnologies: async() => {
+        getAllTechnologies: async () => {
             return prisma.technology.findMany();
         },
 
-        getTechnologyBdId: async(id: number) => {
+        getTechnologyBdId: async (id: number) => {
             const findOneTechnology = await prisma.technology.findUnique({
                 where: {
                     id,
-                }
-            })
+                },
+            });
 
-            if(!findOneTechnology) {
-                throw new ApolloError("Technology not found", "404")
+            if (!findOneTechnology) {
+                throw new ApolloError('Technology not found', '404');
             }
 
-            return findOneTechnology
-        }
+            return findOneTechnology;
+        },
     },
 
     Mutation: {
@@ -27,15 +27,15 @@ export const technologyResolvers = {
             const createTechnology = await prisma.technology.create({
                 data: {
                     name,
-                    image
-                }
-            })
+                    image,
+                },
+            });
 
-            if(!createTechnology) {
-                throw new ApolloError("Technology can not be created", "400")
+            if (!createTechnology) {
+                throw new ApolloError('Technology can not be created', '400');
             }
 
-            return createTechnology
-        }
-    }
-}
+            return createTechnology;
+        },
+    },
+};

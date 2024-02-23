@@ -1,6 +1,6 @@
-import { gql } from "apollo-server";
+import { gql } from 'apollo-server';
 
-export const technologyTypeDefs =  gql`
+export const technologyTypeDefs = gql`
     type Technology {
         id: ID!
         name: String!
