@@ -39,6 +39,12 @@ input updateTechnology {
     image: String
 }
 
+input AuthInput {
+    userName: String!
+    email: String!
+    password: String!
+}
+
 type Query {
     getAllTechnologies: [Technology!]!
     paginatedTechnologies(page: Int!, pageSize: Int!): [Technology!]!
@@ -50,4 +56,7 @@ type Mutation {
     createTechnology(createNewTechnology: CreateTechnology!): Technology!
     updateTechnology(id: ID!, updateTechnology: UpdateTechnology!): Technology
     deleteTechnology(id: ID!): ID
+    registerUser(createNewUser: AuthInput!)
+    loginUser(loginNewUser: AuthInput!)
+    
 }
