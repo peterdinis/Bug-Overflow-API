@@ -29,13 +29,23 @@ type Comment {
     user: User!
 }
 
+input CreateTechnology {
+    name: String!
+    image: String!
+}
+
+input updateTechnology {
+    name: String
+    image: String
+}
+
 type Query {
     getAllTechnologies: [Technology!]!
     getTechnologyById(id: ID!): Technology
 }
 
 type Mutation {
-    createTechnology(name: String!, description: String!): Technology!
-    updateTechnology(id: ID!, name: String, description: String): Technology
+    createTechnology(createNewTechnology: CreateTechnology!): Technology!
+    updateTechnology(id: ID!, updateTechnology: UpdateTechnology!): Technology
     deleteTechnology(id: ID!): ID
 }

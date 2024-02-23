@@ -29,12 +29,11 @@ export const technologyResolvers = {
     Mutation: {
         createTechnology: async (
             _: unknown,
-            { name, image }: CreateTechnologyType,
+            createTechnologyInput: CreateTechnologyType,
         ) => {
             const createTechnology = await prisma.technology.create({
                 data: {
-                    name,
-                    image,
+                    ...createTechnologyInput,
                 },
             });
 
@@ -46,32 +45,34 @@ export const technologyResolvers = {
         },
 
         updateTechnology: async (
-            _: unknown, 
+            _: unknown,
             id: number,
-            { name, image }: UpdateTechnologyType,
+            updateTechnologyInput: UpdateTechnologyType,
         ) => {
             const findOneTechnology = await prisma.technology.findUnique({
                 where: {
-                    id
-                }
-            })
+                    id,
+                },
+            });
 
-            if(!findOneTechnology) {
-                throw new ApolloError("Technology with this id does not exists", "404");
+            if (!findOneTechnology) {
+                throw new ApolloError(
+                    'Technology with this id does not exists',
+                    '404',
+                );
             }
 
             const updatingTechnology = await prisma.technology.update({
                 where: {
-                    id: findOneTechnology.id
+                    id: findOneTechnology.id,
                 },
                 data: {
-                    name,
-                    image
-                }
-            })
+                    ...updateTechnologyInput,
+                },
+            });
 
-            if(!updatingTechnology) {
-                throw new ApolloError("Update technology failed", "400")
+            if (!updatingTechnology) {
+                throw new ApolloError('Update technology failed', '400');
             }
 
             return updatingTechnology;
@@ -80,17 +81,20 @@ export const technologyResolvers = {
         deleteTechnology: async (id: number) => {
             const findOneTechnology = await prisma.technology.findUnique({
                 where: {
-                    id
-                }
-            })
+                    id,
+                },
+            });
 
-            if(!findOneTechnology) {
-                throw new ApolloError("Technology with this id does not exists", "404");
+            if (!findOneTechnology) {
+                throw new ApolloError(
+                    'Technology with this id does not exists',
+                    '404',
+                );
             }
 
             const deleteCategory = await prisma.technology.delete({
-                where: {id: findOneTechnology.id}
-            })
+                where: { id: findOneTechnology.id },
+            });
 
             return deleteCategory;
         },
