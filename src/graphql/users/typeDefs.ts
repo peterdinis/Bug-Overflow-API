@@ -36,6 +36,5 @@ export const userTypeDefs = gql`
     type Mutation {
         registerUser(createNewUser: AuthInput!): User!
         loginUser(loginNewUser: AuthInput!): User!
-        logout: Boolean!
     }
 `;
