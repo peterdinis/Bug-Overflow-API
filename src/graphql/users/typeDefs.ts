@@ -1,5 +1,7 @@
 import { gql } from 'apollo-server';
 
+// Urobiť refaktor pre types
+
 export const userTypeDefs = gql`
     type Technology {
         id: ID!
