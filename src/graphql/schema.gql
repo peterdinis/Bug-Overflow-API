@@ -57,7 +57,6 @@ type Mutation {
     createTechnology(createNewTechnology: CreateTechnology!): Technology!
     updateTechnology(id: ID!, updateTechnology: UpdateTechnology!): Technology
     deleteTechnology(id: ID!): ID
-    registerUser(createNewUser: AuthInput!)
-    loginUser(loginNewUser: AuthInput!)
-
+    #registerUser(createNewUser: AuthInput!)
+    #loginUser(loginNewUser: AuthInput!)
 }

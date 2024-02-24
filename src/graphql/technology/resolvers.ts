@@ -26,25 +26,28 @@ export const technologyResolvers = {
             return findOneTechnology;
         },
 
-        paginatedTechnologies: async (_: unknown, { page = 1, pageSize = 10 }) => {
+        paginatedTechnologies: async (
+            _: unknown,
+            { page = 1, pageSize = 10 },
+        ) => {
             const technologies = await prisma.technology.findMany({
-              take: pageSize,
-              skip: (page - 1) * pageSize,
+                take: pageSize,
+                skip: (page - 1) * pageSize,
             });
-      
+
             return technologies;
-          },
-          searchTechnologies: async (_: unknown, { query }: SearchQueryType) => {
+        },
+        searchTechnologies: async (_: unknown, { query }: SearchQueryType) => {
             const technologies = await prisma.technology.findMany({
-              where: {
-                name: {
-                  contains: query,
+                where: {
+                    name: {
+                        contains: query,
+                    },
                 },
-              },
             });
-      
+
             return technologies;
-          },
+        },
     },
 
     Mutation: {
