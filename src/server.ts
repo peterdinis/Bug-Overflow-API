@@ -1,4 +1,5 @@
 import { ApolloServer } from 'apollo-server';
+import {ApolloServerPluginUsageReporting} from "apollo-server-core";
 import { resolvers, typeDefs } from './graphql/appschema';
 import dotenv from 'dotenv';
 import express, { Application } from 'express';
@@ -13,6 +14,12 @@ const server = new ApolloServer({
     cors: {
         origin: '*',
     },
+    debug: true,
+    plugins: [
+        ApolloServerPluginUsageReporting({
+          sendReportsImmediately: true
+        }),
+      ],
 });
 
 dotenv.config();
