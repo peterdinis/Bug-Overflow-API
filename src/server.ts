@@ -1,6 +1,6 @@
 import { ApolloServer } from 'apollo-server';
 import {ApolloServerPluginUsageReporting} from "apollo-server-core";
-import { resolvers, typeDefs } from './graphql/appschema';
+import { schema} from './graphql/appschema';
 import dotenv from 'dotenv';
 import express, { Application } from 'express';
 
@@ -9,8 +9,7 @@ const app: Application = express();
 const PORT = process.env.PORT as unknown as number;
 
 const server = new ApolloServer({
-    typeDefs,
-    resolvers,
+    schema,
     cors: {
         origin: '*',
     },
