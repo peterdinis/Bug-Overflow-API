@@ -13,6 +13,7 @@ const server = new ApolloServer({
     cors: {
         origin: '*',
     },
+    debug: true
 });
 
 dotenv.config();
