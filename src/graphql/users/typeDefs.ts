@@ -1,14 +1,6 @@
 import { gql } from 'apollo-server';
 
-// Urobiť refaktor pre types
-
 export const userTypeDefs = gql`
-    type Technology {
-        id: ID!
-        name: String!
-        image: String!
-    }
-
     type User {
         id: ID!
         userName: String!
@@ -19,12 +11,6 @@ export const userTypeDefs = gql`
         posts: [Post!]!
     }
 
-    type Post {
-        id: ID!
-        content: String!
-        createdAt: String!
-        user: User!
-    }
     input AuthInput {
         userName: String!
         email: String!

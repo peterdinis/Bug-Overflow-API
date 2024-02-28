@@ -5,13 +5,12 @@ import { prisma } from '../../prisma/db';
 import { ApolloError } from 'apollo-server';
 
 export const userResolvers = {
-    
     Query: {
         userProfile: async (_: unknown, { id }: any) => {
             return await prisma.user.findUnique({
-              where: { id: Number(id) },
+                where: { id: Number(id) },
             });
-          }
+        },
     },
 
     Mutation: {
