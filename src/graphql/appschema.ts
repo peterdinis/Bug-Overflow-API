@@ -5,14 +5,15 @@ import { userTypeDefs } from './users/typeDefs';
 import { userResolvers } from './users/resolvers';
 import { commentsTypeDefs } from './comments/typeDefs';
 import { postsTypeDefs } from './posts/typeDefs';
+import { makeExecutableSchema } from 'graphql-tools';
 
-export const rootTypeDefs = gql`
+const rootTypeDefs = gql`
     type Query {
         hello: String
     }
 `;
 
-export const rootResolvers = {
+const rootResolvers = {
     Query: {
         hello: async () => {
             return 'Hello';
@@ -20,5 +21,11 @@ export const rootResolvers = {
     },
 };
 
-export const resolvers = [rootResolvers, technologyResolvers, userResolvers];
-export const typeDefs = [rootTypeDefs, technologyTypeDefs, userTypeDefs, commentsTypeDefs, postsTypeDefs];
+const resolvers = [rootResolvers, technologyResolvers, userResolvers];
+const typeDefs = [rootTypeDefs, technologyTypeDefs, userTypeDefs, commentsTypeDefs, postsTypeDefs];
+
+
+export const schema = makeExecutableSchema({
+    resolvers,
+    typeDefs
+})
