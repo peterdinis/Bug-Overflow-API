@@ -13,41 +13,45 @@ datasource db {
   url      = env("DATABASE_URL")
 }
 
-
 model Technology {
-  id Int      @id @default(autoincrement())
-  name String
-  image String
-  users User[]
+  id        Int      @id @default(autoincrement())
+  name      String
+  image     String
+  users     User[]
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt @default(now())
 }
 
 model User {
-  id Int      @id @default(autoincrement())
-  userName String
-  email String @unique
-  password String
+  id                   Int          @id @default(autoincrement())
+  userName             String
+  email                String       @unique
+  password             String
   favoriteTechnologies Technology[]
-  createdAt String
-  posts Post[]
-  comments Comment[]
-  token  String
+  posts                Post[]
+  comments             Comment[]
+  token                String
+  createdAt            DateTime     @default(now())
+  updatedAt            DateTime     @updatedAt
 }
 
 model Post {
-  id Int     @id @default(autoincrement())
-  content String
-  createdAt String
-  userId Int
-  user User @relation(fields: [userId], references: [id])
-  comments Comment[]
+  id        Int       @id @default(autoincrement())
+  content   String
+  userId    Int
+  user      User      @relation(fields: [userId], references: [id])
+  comments  Comment[]
+  createdAt DateTime  @default(now())
+  updatedAt DateTime  @updatedAt
 }
 
 model Comment {
-  id Int     @id @default(autoincrement())
-  createdAt String
+  id            Int      @id @default(autoincrement())
   commentedText String
-  postId Int
-  post Post @relation(fields: [postId], references: [id])
-  userId Int
-  user User @relation(fields: [userId], references: [id])
+  postId        Int
+  post          Post     @relation(fields: [postId], references: [id])
+  userId        Int
+  user          User     @relation(fields: [userId], references: [id])
+  createdAt     DateTime @default(now())
+  updatedAt     DateTime @updatedAt
 }
