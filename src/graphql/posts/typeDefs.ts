@@ -6,5 +6,7 @@ export const postsTypeDefs = gql`
         content: String!
         createdAt: String!
         user: User!
+        tag: String!
+        comments: [Comment!]!
     }
 `;

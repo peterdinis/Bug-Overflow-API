@@ -20,6 +20,8 @@ type Post {
     content: String!
     createdAt: String!
     user: User!
+    tag: String!
+    comments: [Comment!]!
 }
 
 type Comment {
