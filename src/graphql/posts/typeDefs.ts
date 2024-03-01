@@ -1,5 +1,8 @@
 import { gql } from 'apollo-server';
 
+// TODO: Get all comments for post get comment detail for post QUERY
+// TODO1: 
+
 export const postsTypeDefs = gql`
     type Post {
         id: ID!
@@ -8,5 +11,16 @@ export const postsTypeDefs = gql`
         user: User!
         tag: String!
         comments: [Comment!]!
+    }
+
+    typeQuery {
+        getAllPosts: [Post!]!
+        getPostById(id: Id!): Post!
+        paginatedPosts(page: Int, pageSize: Int): [Post!]!
+        searchPosts(query: String!): [Post!]!
+    }
+
+    type Mutation {
+        
     }
 `;
