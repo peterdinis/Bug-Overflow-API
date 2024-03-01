@@ -20,6 +20,8 @@ type Post {
     content: String!
     createdAt: String!
     user: User!
+    tag: String!
+    comments: [Comment!]!
 }
 
 type Comment {
@@ -51,12 +53,13 @@ type Query {
     paginatedTechnologies(page: Int!, pageSize: Int!): [Technology!]!
     searchTechnologies(name: String!): Technology!
     getTechnologyById(id: ID!): Technology
+    userProfile(id: ID!): User!
 }
 
 type Mutation {
     createTechnology(createNewTechnology: CreateTechnology!): Technology!
     updateTechnology(id: ID!, updateTechnology: UpdateTechnology!): Technology
     deleteTechnology(id: ID!): ID
-    #registerUser(createNewUser: AuthInput!)
-    #loginUser(loginNewUser: AuthInput!)
+    registerUser(createNewUser: AuthInput!): User!
+    loginUser(loginNewUser: AuthInput!): User!
 }
