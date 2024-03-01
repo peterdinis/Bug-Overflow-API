@@ -1,6 +1,6 @@
 import { ApolloServer } from 'apollo-server';
-import {ApolloServerPluginUsageReporting} from "apollo-server-core";
-import { schema} from './graphql/appschema';
+import { ApolloServerPluginUsageReporting } from 'apollo-server-core';
+import { schema } from './graphql/appschema';
 import dotenv from 'dotenv';
 import express, { Application } from 'express';
 
@@ -16,9 +16,9 @@ const server = new ApolloServer({
     debug: true,
     plugins: [
         ApolloServerPluginUsageReporting({
-          sendReportsImmediately: true
+            sendReportsImmediately: true,
         }),
-      ],
+    ],
 });
 
 dotenv.config();

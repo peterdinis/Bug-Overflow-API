@@ -8,12 +8,16 @@ import { makeExecutableSchema } from 'graphql-tools';
 import { rootResolvers } from './root/resolvers';
 import { rootTypeDefs } from './root/typedefs';
 
-
 const resolvers = [rootResolvers, technologyResolvers, userResolvers];
-const typeDefs = [rootTypeDefs, technologyTypeDefs, userTypeDefs, commentsTypeDefs, postsTypeDefs];
-
+const typeDefs = [
+    rootTypeDefs,
+    technologyTypeDefs,
+    userTypeDefs,
+    commentsTypeDefs,
+    postsTypeDefs,
+];
 
 export const schema = makeExecutableSchema({
     resolvers,
-    typeDefs
-})
+    typeDefs,
+});
