@@ -13,6 +13,7 @@
     "author": "",
     "license": "ISC",
     "dependencies": {
+        "@graphql-tools/schema": "^10.0.3",
         "@prisma/client": "^5.10.2",
         "apollo-server": "^3.13.0",
         "bcrypt": "^5.1.1",
@@ -25,8 +26,10 @@
         "graphql": "^16.8.1",
         "graphql-constraint-directive": "^5.4.2",
         "graphql-tools": "^9.0.1",
+        "graphql-ws": "^5.15.0",
         "jsonwebtoken": "^9.0.2",
-        "prisma": "^5.10.2"
+        "prisma": "^5.10.2",
+        "ws": "^8.16.0"
     },
     "devDependencies": {
         "@types/bcrypt": "^5.0.2",
