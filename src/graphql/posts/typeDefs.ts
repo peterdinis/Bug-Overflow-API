@@ -14,15 +14,9 @@ export const postsTypeDefs = gql`
 
     type Query {
         getAllPosts: [Post!]!
-        getPostById(id: Id!): Post!
+        getPostById(id: ID!): Post!
         paginatedPosts(page: Int, pageSize: Int): [Post!]!
         searchPosts(query: String!): [Post!]!
         getAllPostsByTag(tag: String!): [Post!]!
-    }
-
-    type Mutation {
-        createPost(): Post!
-        updatePost(id: ID!): Post!
-        deletePost(id: ID!)
     }
 `;
