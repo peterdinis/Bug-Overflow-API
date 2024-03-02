@@ -18,7 +18,7 @@ const server = new ApolloServer({
 
 dotenv.config();
 
-app.get('health', (_, res) => res.send('OK')); // Helper endpoint
+app.get('health', (_, res) => res.send('OK'));
 
 server.listen(PORT).then(({ url }) => {
     console.log('Applikácia beží na url ' + url);

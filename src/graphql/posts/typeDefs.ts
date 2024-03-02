@@ -12,7 +12,7 @@ export const postsTypeDefs = gql`
         comments: [Comment!]!
     }
 
-    typeQuery {
+    type Query {
         getAllPosts: [Post!]!
         getPostById(id: Id!): Post!
         paginatedPosts(page: Int, pageSize: Int): [Post!]!
