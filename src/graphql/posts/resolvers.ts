@@ -32,5 +32,11 @@ export const postsResolvers = {
 
             return posts;
         },
+
+        searchPosts: () => {},
+
+        getAllPostsByTag:(tag: string) => {},
+
+        allCommentsForPosts: () => {}
     }
 }
