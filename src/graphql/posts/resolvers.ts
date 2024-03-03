@@ -1,5 +1,6 @@
 import {prisma} from "../../prisma/db";
 import { ApolloError } from 'apollo-server';
+import { SearchQueryType } from "../types/globalTypes";
 
 export const postsResolvers = {
     Query: {
@@ -33,7 +34,21 @@ export const postsResolvers = {
             return posts;
         },
 
-        searchPosts: () => {},
+        searchPosts: async (_: unknown, { query }: SearchQueryType) => {
+            const posts = await prisma.post.findMany({
+                where: {
+                    content: {
+                        contains: query
+                    }
+                }
+            });
+
+            if(!posts) {
+                throw new ApolloError("Posts with these content does not exists", "404");
+            }
+
+            return posts;
+        },
 
         getAllPostsByTag:(tag: string) => {},
 
