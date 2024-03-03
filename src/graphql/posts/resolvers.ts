@@ -49,9 +49,5 @@ export const postsResolvers = {
 
             return posts;
         },
-
-        getAllPostsByTag:(tag: string) => {},
-
-        allCommentsForPosts: () => {}
     }
 }

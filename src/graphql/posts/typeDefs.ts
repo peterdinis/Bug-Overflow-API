@@ -29,11 +29,10 @@ export const postsTypeDefs = gql`
         getPostById(id: ID!): Post!
         paginatedPosts(page: Int, pageSize: Int): [Post!]!
         searchPosts(query: String!): [Post!]!
-        getAllPostsByTag(tag: String!): [Post!]!
-        allCommentsForPost: [Post!]!
     }
 
     type Mutation {
-
+        createPost(createPostInput: CreatePostInput!): Post!
+        updatePost(updatePostINput: UpdatePostInput): Post
     }
 `;
