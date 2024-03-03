@@ -12,13 +12,13 @@ export const postsTypeDefs = gql`
 
     input CreatePostInput {
         content: String!
-        user: User!
+        user: String!
         tag: String!
     }
 
     input UpdatePostInput {
         content: String
-        user: User
+        user: String
         tag: String
     }
 
@@ -31,7 +31,7 @@ export const postsTypeDefs = gql`
 
     type Mutation {
         createPost(createPostInput: CreatePostInput!): Post!
-        updatePost(updatePostINput: UpdatePostInput): Post
-        deletePost(id: ID!) ID
+        updatePost(updatePostInput: UpdatePostInput): Post
+        deletePost(id: ID!):ID
     }
 `;
