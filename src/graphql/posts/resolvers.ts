@@ -1,3 +1,4 @@
+import { CreatePostType, UpdatePostType } from './../types/postsTypes';
 import {prisma} from "../../prisma/db";
 import { ApolloError } from 'apollo-server';
 import { SearchQueryType } from "../types/globalTypes";
@@ -52,6 +53,76 @@ export const postsResolvers = {
     },
 
     Mutation: {
-        
+        createPost: async(
+            _: unknown,
+            createPostInput: CreatePostType
+        ) =>{
+            const newPosts = await prisma.post.create({
+                data: {
+                    ...createPostInput
+                }
+            });
+
+            if(!newPosts) {
+                throw new ApolloError("Could not create posts", "400");
+            }
+
+            return newPosts
+        },
+
+        updatePost: async(
+            _: unknown,
+            id: number,
+            updatePostInput: UpdatePostType
+        ) => {
+            const findOnePost = await prisma.post.findUnique({
+                where: {
+                    id,
+                },
+            });
+
+            if (!findOnePost) {
+                throw new ApolloError(
+                    'post with this id does not exists',
+                    '404',
+                );
+            }
+
+            const updateOnePost = await prisma.post.update({
+                where: {
+                    id: findOnePost.id
+                },
+                data: {
+                    ...updatePostInput
+                }
+            })
+
+            if(!updateOnePost) {
+                throw new ApolloError("Post can not be updated", "403");
+            }
+
+            return updateOnePost;
+        },
+
+        deletePost: async(_: unknown, id: number) => {
+            const findOnePost = await prisma.post.findUnique({
+                where: {
+                    id,
+                },
+            });
+
+            if (!findOnePost) {
+                throw new ApolloError(
+                    'post with this id does not exists',
+                    '404',
+                );
+            }
+
+            const deletePost = await prisma.post.delete({
+                where: { id: findOnePost.id },
+            });
+
+            return deletePost;
+        }
     }
 }
