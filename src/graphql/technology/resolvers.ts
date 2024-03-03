@@ -2,9 +2,9 @@ import { ApolloError } from 'apollo-server';
 import { prisma } from '../../prisma/db';
 import {
     CreateTechnologyType,
-    SearchQueryType,
     UpdateTechnologyType,
 } from '../types/technologyTypes';
+import { SearchQueryType } from '../types/globalTypes';
 
 export const technologyResolvers = {
     Query: {
