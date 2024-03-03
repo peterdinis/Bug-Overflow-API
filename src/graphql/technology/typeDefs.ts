@@ -7,6 +7,16 @@ export const technologyTypeDefs = gql`
         image: String!
     }
 
+    input CreateTechnology {
+        name: String!
+        image: String!
+    }
+
+    input UpdateTechnology {
+        name: String
+        image: String
+    }
+
     type Query {
         getAllTechnologies: [Technology!]!
         getTechnologyById(id: ID!): Technology
@@ -15,8 +25,8 @@ export const technologyTypeDefs = gql`
     }
 
     type Mutation {
-        createTechnology(name: String!, image: String!): Technology!
-        updateTechnology(id: ID!, name: String, image: String): Technology
+        createTechnology(createInput: CreateTechnology!): Technology!
+        updateTechnology(id: ID!, updateInput: UpdateTechnology!): Technology
         deleteTechnology(id: ID!): ID
     }
 `;
