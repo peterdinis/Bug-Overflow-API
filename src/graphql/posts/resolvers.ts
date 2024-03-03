@@ -49,5 +49,9 @@ export const postsResolvers = {
 
             return posts;
         },
+    },
+
+    Mutation: {
+        
     }
 }
