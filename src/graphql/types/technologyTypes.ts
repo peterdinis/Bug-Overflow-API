@@ -4,7 +4,3 @@ export type CreateTechnologyType = {
 };
 
 export type UpdateTechnologyType = Partial<CreateTechnologyType>;
-
-export type SearchQueryType = {
-    query: string;
-};
