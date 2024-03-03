@@ -8,4 +8,11 @@ export const commentsTypeDefs = gql`
         post: Post!
         user: User!
     }
+
+    type Query {
+        getAllComments: [Comment!]!
+        getCommentById(id: ID!): Comment
+        paginatedComments(page: Int, pageSize: Int): [Comment!]!
+        searchComments(query: String!): [Comment!]!
+    }
 `;
