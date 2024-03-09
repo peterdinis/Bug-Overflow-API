@@ -8,11 +8,16 @@ import { rootResolvers } from './root/resolvers';
 import { rootTypeDefs } from './root/typedefs';
 import { postsTypeDefs } from './posts/typeDefs';
 
-export const resolvers = [rootResolvers, postsResolvers, technologyResolvers, userResolvers];
+export const resolvers = [
+    rootResolvers,
+    postsResolvers,
+    technologyResolvers,
+    userResolvers,
+];
 export const typeDefs = [
     rootTypeDefs,
     technologyTypeDefs,
     userTypeDefs,
     commentsTypeDefs,
-    postsTypeDefs
+    postsTypeDefs,
 ];

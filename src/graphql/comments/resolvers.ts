@@ -1,1 +1,1 @@
-export const commentResolvers = {}
+export const commentResolvers = {};

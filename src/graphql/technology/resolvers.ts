@@ -81,7 +81,7 @@ export const technologyResolvers = {
 
             if (!findOneTechnology) {
                 throw new GraphQLError(
-                    'Technology with this id does not exists'
+                    'Technology with this id does not exists',
                 );
             }
 
@@ -110,7 +110,7 @@ export const technologyResolvers = {
 
             if (!findOneTechnology) {
                 throw new GraphQLError(
-                    'Technology with this id does not exists'
+                    'Technology with this id does not exists',
                 );
             }
 
