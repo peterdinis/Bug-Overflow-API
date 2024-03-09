@@ -1,4 +1,4 @@
-import { ApolloError } from 'apollo-server';
+import { GraphQLError } from 'graphql';
 import { prisma } from '../../prisma/db';
 import {
     CreateTechnologyType,
@@ -20,7 +20,7 @@ export const technologyResolvers = {
             });
 
             if (!findOneTechnology) {
-                throw new ApolloError('Technology not found', '404');
+                throw new GraphQLError('Technology not found');
             }
 
             return findOneTechnology;
@@ -62,7 +62,7 @@ export const technologyResolvers = {
             });
 
             if (!createTechnology) {
-                throw new ApolloError('Technology can not be created', '400');
+                throw new GraphQLError('Technology can not be created');
             }
 
             return createTechnology;
@@ -80,9 +80,8 @@ export const technologyResolvers = {
             });
 
             if (!findOneTechnology) {
-                throw new ApolloError(
-                    'Technology with this id does not exists',
-                    '404',
+                throw new GraphQLError(
+                    'Technology with this id does not exists'
                 );
             }
 
@@ -96,7 +95,7 @@ export const technologyResolvers = {
             });
 
             if (!updatingTechnology) {
-                throw new ApolloError('Update technology failed', '400');
+                throw new GraphQLError('Update technology failed');
             }
 
             return updatingTechnology;
@@ -110,9 +109,8 @@ export const technologyResolvers = {
             });
 
             if (!findOneTechnology) {
-                throw new ApolloError(
-                    'Technology with this id does not exists',
-                    '404',
+                throw new GraphQLError(
+                    'Technology with this id does not exists'
                 );
             }
 
