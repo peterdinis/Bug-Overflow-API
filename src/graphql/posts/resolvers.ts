@@ -1,7 +1,7 @@
 import { CreatePostType, UpdatePostType } from './../types/postsTypes';
 import {prisma} from "../../prisma/db";
-import { ApolloError } from 'apollo-server';
 import { SearchQueryType } from "../types/globalTypes";
+import { GraphQLError } from 'graphql';
 
 export const postsResolvers = {
     Query: {
@@ -17,7 +17,7 @@ export const postsResolvers = {
             });
 
             if(!findOnePost) {
-                throw new ApolloError("Post with this id does not exists", "404");
+                throw new GraphQLError("Post with this id does not exists");
             }
 
             return findOnePost;
@@ -45,7 +45,7 @@ export const postsResolvers = {
             });
 
             if(!posts) {
-                throw new ApolloError("Posts with these content does not exists", "404");
+                throw new GraphQLError("Posts with these content does not exists");
             }
 
             return posts;
@@ -64,7 +64,7 @@ export const postsResolvers = {
             });
 
             if(!newPosts) {
-                throw new ApolloError("Could not create posts", "400");
+                throw new GraphQLError("Could not create posts");
             }
 
             return newPosts
@@ -82,9 +82,8 @@ export const postsResolvers = {
             });
 
             if (!findOnePost) {
-                throw new ApolloError(
+                throw new GraphQLError(
                     'post with this id does not exists',
-                    '404',
                 );
             }
 
@@ -98,7 +97,7 @@ export const postsResolvers = {
             })
 
             if(!updateOnePost) {
-                throw new ApolloError("Post can not be updated", "403");
+                throw new GraphQLError("Post can not be updated");
             }
 
             return updateOnePost;
@@ -112,9 +111,8 @@ export const postsResolvers = {
             });
 
             if (!findOnePost) {
-                throw new ApolloError(
+                throw new GraphQLError(
                     'post with this id does not exists',
-                    '404',
                 );
             }
 
