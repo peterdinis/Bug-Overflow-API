@@ -22,14 +22,9 @@
         "dotenv": "^16.4.5",
         "errorhandler": "^1.5.1",
         "express": "^4.18.3",
-        "graphql": "^16.8.1",
-        "graphql-constraint-directive": "^5.4.2",
-        "graphql-subscriptions": "^2.0.0",
-        "graphql-tools": "^9.0.1",
-        "graphql-ws": "^5.15.0",
         "jsonwebtoken": "^9.0.2",
-        "prisma": "^5.10.2",
-        "ws": "^8.16.0"
+        "loglevel": "^1.9.1",
+        "prisma": "^5.10.2"
     },
     "devDependencies": {
         "@types/bcrypt": "^5.0.2",

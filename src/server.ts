@@ -1,12 +1,16 @@
 import { ApolloServer } from '@apollo/server';
 import { startStandaloneServer } from '@apollo/server/standalone';
 import { typeDefs, resolvers } from './graphql/appschema';
+import loglevel from 'loglevel';
 
 interface MyContext {
     token?: String;
 }
 
-const server = new ApolloServer<MyContext>({ typeDefs, resolvers });
+const logger = loglevel.getLogger('apollo-server');
+logger.setLevel(loglevel.levels.DEBUG);
+
+const server = new ApolloServer<MyContext>({ typeDefs, resolvers, includeStacktraceInErrorResponses: true, });
 
 const startServer = async () => {
     const { url } = await startStandaloneServer(server, {
