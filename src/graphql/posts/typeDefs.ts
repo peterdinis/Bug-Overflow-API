@@ -1,6 +1,4 @@
-import { gql } from 'apollo-server';
-
-export const postsTypeDefs = gql`
+export const postsTypeDefs = `#graphql
     type Post {
         id: ID!
         content: String!
