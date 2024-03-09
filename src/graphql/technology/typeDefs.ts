@@ -1,5 +1,3 @@
-import { gql } from 'apollo-server';
-
 export const technologyTypeDefs = `#graphql
     type Technology {
         id: ID!

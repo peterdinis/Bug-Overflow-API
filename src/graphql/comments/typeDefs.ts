@@ -1,6 +1,4 @@
-import { gql } from 'apollo-server';
-
-export const commentsTypeDefs = gql`
+export const commentsTypeDefs = `#graphql
     type Comment {
         id: ID!
         createdAt: String!
