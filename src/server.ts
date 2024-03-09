@@ -7,7 +7,11 @@ import { ServerContent } from './graphql/types/serverTypes';
 const logger = loglevel.getLogger('apollo-server');
 logger.setLevel(loglevel.levels.DEBUG);
 
-const server = new ApolloServer<ServerContent>({ typeDefs, resolvers, includeStacktraceInErrorResponses: true, });
+const server = new ApolloServer<ServerContent>({
+    typeDefs,
+    resolvers,
+    includeStacktraceInErrorResponses: true,
+});
 
 const startServer = async () => {
     const { url } = await startStandaloneServer(server, {
