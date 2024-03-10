@@ -2,7 +2,7 @@ import * as bcrypt from 'bcrypt';
 import * as jwt from 'jsonwebtoken';
 import { AuthType } from '../types/userTypes';
 import { prisma } from '../../prisma/db';
-import { ApolloError } from 'apollo-server';
+import { GraphQLError } from 'graphql';
 
 export const userResolvers = {
     Query: {
@@ -66,7 +66,7 @@ export const userResolvers = {
             });
 
             if (!user) {
-                throw new ApolloError('User does not exists', '404');
+                throw new GraphQLError('User does not exists');
             }
 
             const valid = await bcrypt.compare(password, user.password);
