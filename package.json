@@ -24,9 +24,11 @@
         "errorhandler": "^1.5.1",
         "express": "^4.18.3",
         "graphql": "^16.8.1",
+        "graphql-subscriptions": "^2.0.0",
         "jsonwebtoken": "^9.0.2",
         "loglevel": "^1.9.1",
-        "prisma": "^5.10.2"
+        "prisma": "^5.10.2",
+        "subscriptions-transport-ws": "^0.11.0"
     },
     "devDependencies": {
         "@types/bcrypt": "^5.0.2",
