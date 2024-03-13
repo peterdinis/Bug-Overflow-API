@@ -20,6 +20,14 @@ export const commentResolvers = {
     },
 
     Mutation: {
-        
+        createComment: async() => {},
+
+        updateComment: async() => {},
+
+        deleteComment: async() => {},
+
+        downvoteComment: async() => {},
+
+        upvoteComment: async() => {}
     }
 };
