@@ -43,8 +43,8 @@ export const commentsTypeDefs = `#graphql
         getCommentById(id: ID!): Comment
         paginatedComments(page: Int, pageSize: Int): [Comment!]!
         searchComments(query: String!): [Comment!]!
-        getAllCommentsForPost(postId: ID!)
-        getCommentDetailInPost(postId: ID!, commentId: ID!)
+        getAllCommentsForPost(postId: ID!): Comment
+        getCommentDetailInPost(postId: ID!, commentId: ID!): Comment
     }
 
     type Mutation {
