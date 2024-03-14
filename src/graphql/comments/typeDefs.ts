@@ -51,7 +51,7 @@ export const commentsTypeDefs = `#graphql
         createComment(createCommentInput: CreateComment!): Comment!
         updateComment(updateCommentInput: UpdateComment): Comment!
         upvoteComment(upvoteCommentInput: UpvoteComment!): Comment!
-        downvoteComment(downvoteCommentInput: DovnoteComment!): Comment!
+        downvoteComment(downvoteCommentInput: DownvoteComment!): Comment!
         deleteComment(id: ID!): ID
     }
 `;
