@@ -3,6 +3,7 @@ import { prisma } from '../../prisma/db';
 import { SearchQueryType } from '../types/globalTypes';
 import { CreateComment, UpdateComment, DownvoteComment, UpvoteComment } from '../types/commentTypes';
 
+
 export const commentResolvers = {
     Query: {
         getAllComments: async () => {
