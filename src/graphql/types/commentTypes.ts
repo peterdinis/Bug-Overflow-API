@@ -1,3 +1,14 @@
+import { Posts } from "./postsTypes";
+import { UserType } from "./userTypes";
+
+export type CommentType = {
+    id: number;
+    createdAt: string;
+    commentedText: string;
+    post: Posts[];
+    user: UserType[];
+}
+
 export type CreateComment = {
     commentedText: string;
     postId: number;
