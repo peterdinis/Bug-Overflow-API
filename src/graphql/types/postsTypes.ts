@@ -1,5 +1,5 @@
-import { CommentType } from "./commentTypes";
-import { UserType } from "./userTypes";
+import { CommentType } from './commentTypes';
+import { UserType } from './userTypes';
 
 export type Posts = {
     id: number;
@@ -8,7 +8,7 @@ export type Posts = {
     user: UserType[];
     tag: string;
     comments: CommentType[];
-}
+};
 
 export type CreatePostType = {
     content: string;

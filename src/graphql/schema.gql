@@ -59,6 +59,32 @@ input AuthInput {
     password: String!
 }
 
+input CreateComment {
+    commentedText: String!
+    postId: ID!
+    userID: ID!
+    upvote: Int!
+    downvote: Int!
+}
+
+input UpdateComment {
+    commentedText: String
+    postId: ID
+    userID: ID
+    upvote: Int
+    downvote: Int
+}
+
+input UpvoteComment {
+    commentId: ID!
+    upvote: Int!
+}
+
+input DownvoteComment {
+    commentId: ID!
+    downvote: Int!
+}
+
 type Query {
     getAllTechnologies: [Technology!]!
     paginatedTechnologies(page: Int!, pageSize: Int!): [Technology!]!
@@ -69,6 +95,12 @@ type Query {
     getPostById(id: ID!): Post!
     paginatedPosts(page: Int, pageSize: Int): [Post!]!
     searchPosts(query: String!): [Post!]!
+    getAllComments: [Comment!]!
+    getCommentById(id: ID!): Comment
+    paginatedComments(page: Int, pageSize: Int): [Comment!]!
+    searchComments(query: String!): [Comment!]!
+    getAllCommentsForPost(postId: ID!): Comment
+    getCommentDetailInPost(postId: ID!, commentId: ID!): Comment
 }
 
 type Mutation {
@@ -80,4 +112,9 @@ type Mutation {
     createPost(createPostInput: CreatePostInput!): Post!
     updatePost(updatePostInput: UpdatePostInput): Post
     deletePost(id: ID!): ID
+    createComment(createCommentInput: CreateComment!): Comment!
+    updateComment(updateCommentInput: UpdateComment): Comment!
+    upvoteComment(upvoteCommentInput: UpvoteComment!): Comment!
+    downvoteComment(downvoteCommentInput: DownvoteComment!): Comment!
+    deleteComment(id: ID!): ID
 }

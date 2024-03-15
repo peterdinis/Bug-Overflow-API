@@ -1,4 +1,4 @@
-import { Technologies } from "./technologyTypes";
+import { Technologies } from './technologyTypes';
 
 export type AuthType = {
     userName: string;
@@ -14,4 +14,4 @@ export type UserType = {
     favoriteTechnologies: Technologies[];
     createdAt: string | Date;
     posts: any;
-}
+};
