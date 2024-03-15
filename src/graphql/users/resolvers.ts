@@ -3,6 +3,7 @@ import * as jwt from 'jsonwebtoken';
 import { AuthType } from '../types/userTypes';
 import { prisma } from '../../prisma/db';
 import { GraphQLError } from 'graphql';
+import {format} from "date-fns";
 
 export const userResolvers = {
     Query: {
@@ -32,7 +33,7 @@ export const userResolvers = {
                         userName,
                         email,
                         password: hashedPassword,
-                        createdAt: new Date().toISOString(),
+                        createdAt: format(new Date(), 'MM-dd-YYYY'),
                         token: '',
                     },
                 });
@@ -41,7 +42,7 @@ export const userResolvers = {
                     { userId: createNewUser.id },
                     process.env.JWT_SECRET as unknown as string,
                     { expiresIn: '1d' },
-                ); // Adjust the expiration as needed
+                );
 
                 const updatedUser = await prisma.user.update({
                     where: { id: createNewUser.id },
