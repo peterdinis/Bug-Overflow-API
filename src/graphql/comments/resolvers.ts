@@ -1,8 +1,12 @@
 import { GraphQLError } from 'graphql';
 import { prisma } from '../../prisma/db';
 import { SearchQueryType } from '../types/globalTypes';
-import { CreateComment, UpdateComment, DownvoteComment, UpvoteComment } from '../types/commentTypes';
-
+import {
+    CreateComment,
+    UpdateComment,
+    DownvoteComment,
+    UpvoteComment,
+} from '../types/commentTypes';
 
 export const commentResolvers = {
     Query: {
@@ -16,7 +20,10 @@ export const commentResolvers = {
             });
         },
 
-        paginatedComments: async (_: unknown, { page = 1, pageSize = 10 }: { page: number; pageSize: number }) => {
+        paginatedComments: async (
+            _: unknown,
+            { page = 1, pageSize = 10 }: { page: number; pageSize: number },
+        ) => {
             const skip = (page - 1) * pageSize;
             return prisma.comment.findMany({
                 skip,
@@ -52,7 +59,10 @@ export const commentResolvers = {
     },
 
     Mutation: {
-        createComment: async (_: unknown, { createCommentInput }: { createCommentInput: CreateComment }) => {
+        createComment: async (
+            _: unknown,
+            { createCommentInput }: { createCommentInput: CreateComment },
+        ) => {
             try {
                 return prisma.comment.create({
                     data: createCommentInput,
@@ -62,7 +72,11 @@ export const commentResolvers = {
             }
         },
 
-        updateComment: async (_: unknown, id: number, { updateCommentInput }: { updateCommentInput: UpdateComment }) => {
+        updateComment: async (
+            _: unknown,
+            id: number,
+            { updateCommentInput }: { updateCommentInput: UpdateComment },
+        ) => {
             const { ...rest } = updateCommentInput;
             try {
                 return prisma.comment.update({
@@ -85,7 +99,10 @@ export const commentResolvers = {
             }
         },
 
-        downvoteComment: async (_: unknown, { downvoteCommentInput }: { downvoteCommentInput: DownvoteComment }) => {
+        downvoteComment: async (
+            _: unknown,
+            { downvoteCommentInput }: { downvoteCommentInput: DownvoteComment },
+        ) => {
             const { commentId, downvote } = downvoteCommentInput;
             try {
                 return prisma.comment.update({
@@ -97,7 +114,10 @@ export const commentResolvers = {
             }
         },
 
-        upvoteComment: async (_: unknown, { upvoteCommentInput }: { upvoteCommentInput: UpvoteComment }) => {
+        upvoteComment: async (
+            _: unknown,
+            { upvoteCommentInput }: { upvoteCommentInput: UpvoteComment },
+        ) => {
             const { commentId, upvote } = upvoteCommentInput;
             try {
                 return prisma.comment.update({

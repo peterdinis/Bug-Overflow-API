@@ -3,7 +3,7 @@ import * as jwt from 'jsonwebtoken';
 import { AuthType } from '../types/userTypes';
 import { prisma } from '../../prisma/db';
 import { GraphQLError } from 'graphql';
-import {format} from "date-fns";
+import { format } from 'date-fns';
 
 export const userResolvers = {
     Query: {
