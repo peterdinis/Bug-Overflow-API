@@ -14,12 +14,14 @@ export type UpdateComment = {
     downvote?: number;
 }
 
-export type UpvoteComment = {
+type CommentWithId = {
     commentId: number;
+}
+
+export type UpvoteComment = CommentWithId & {
     upvote: number;
 }
 
-export type DownvoteComment = {
-    commentId: number;
+export type DownvoteComment = CommentWithId & {
     downvote: number;
 }
