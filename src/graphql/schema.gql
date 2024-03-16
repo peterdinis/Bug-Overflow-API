@@ -80,4 +80,9 @@ type Mutation {
     createPost(createPostInput: CreatePostInput!): Post!
     updatePost(updatePostInput: UpdatePostInput): Post
     deletePost(id: ID!): ID
+    createComment(createCommentInput: CreateComment!): Comment!
+    updateComment(updateCommentInput: UpdateComment): Comment!
+    upvoteComment(upvoteCommentInput: UpvoteComment!): Comment!
+    downvoteComment(downvoteCommentInput: DownvoteComment!): Comment!
+    deleteComment(id: ID!): ID
 }
