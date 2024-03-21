@@ -19,6 +19,7 @@ type Post {
     content: String!
     createdAt: String!
     user: User!
+    status: String!
     tag: String!
     comments: [Comment!]!
 }

@@ -12,12 +12,14 @@ export const postsTypeDefs = `#graphql
         content: String!
         user: String!
         tag: String!
+        status: String!
     }
 
     input UpdatePostInput {
         content: String
         user: String
         tag: String
+        status: String
     }
 
     type Query {

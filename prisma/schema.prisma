@@ -41,6 +41,7 @@ model Post {
   userId    Int
   user      User      @relation(fields: [userId], references: [id])
   tag       String    
+  status    String
   comments  Comment[]
   createdAt DateTime  @default(now())
   updatedAt DateTime  @updatedAt
