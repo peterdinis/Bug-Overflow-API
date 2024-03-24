@@ -4,7 +4,6 @@ import {
     CreateTechnologyType,
     UpdateTechnologyType,
 } from '../types/technologyTypes';
-import { SearchQueryType } from '../types/globalTypes';
 
 export const technologyResolvers = {
     Query: {
