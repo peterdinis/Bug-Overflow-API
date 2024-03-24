@@ -53,18 +53,19 @@ export const technologyResolvers = {
     Mutation: {
         createTechnology: async (
             _: unknown,
-            createTechnologyInput: CreateTechnologyType,
+            { createInput }: { createInput: CreateTechnologyType },
         ) => {
             const createTechnology = await prisma.technology.create({
                 data: {
-                    ...createTechnologyInput,
+                    name: createInput.name!,
+                    image: createInput.image!
                 },
             });
-
+        
             if (!createTechnology) {
                 throw new GraphQLError('Technology can not be created');
             }
-
+        
             return createTechnology;
         },
 
