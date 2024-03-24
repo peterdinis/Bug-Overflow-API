@@ -37,17 +37,6 @@ export const technologyResolvers = {
 
             return technologies;
         },
-        searchTechnologies: async (_: unknown, { query }: SearchQueryType) => {
-            const technologies = await prisma.technology.findMany({
-                where: {
-                    name: {
-                        contains: query,
-                    },
-                },
-            });
-
-            return technologies;
-        },
     },
 
     Mutation: {

@@ -19,7 +19,6 @@ export const technologyTypeDefs = `#graphql
         getAllTechnologies: [Technology!]!
         getTechnologyById(id: ID!): Technology
         paginatedTechnologies(page: Int, pageSize: Int): [Technology!]!
-        searchTechnologies(query: String!): [Technology!]!
     }
 
     type Mutation {
